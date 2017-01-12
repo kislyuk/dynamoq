@@ -57,6 +57,7 @@ def main(args=None):
     elif result is not None:
         if isinstance(result, dict) and "ResponseMetadata" in result:
             del result["ResponseMetadata"]
+        print("wat")
         print(json.dumps(result, indent=2, default=lambda x: str(x)))
 
 def get_key_schema(table):
@@ -94,5 +95,3 @@ def scan(args):
     return table.scan()["Items"]
 
 parser_scan = register_parser(scan)
-
-main()
