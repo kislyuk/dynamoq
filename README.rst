@@ -14,15 +14,15 @@ Use ``aws configure`` to set up your AWS command line environment.
 
 .. code-block:: bash
 
-    ddb get TABLE_NAME HASH_KEY
-    DYNAMODB_TABLE=mytable ddb get HASH_KEY
+    dynamoq get TABLE_NAME HASH_KEY
+    DYNAMODB_TABLE=mytable dynamoq get HASH_KEY
 
-    ddb put mytable '{"key": "foo", "data": "xyz"}' '{"key": "bar", "data": "xyz"}'
-    ddb scan mytable
+    dynamoq put mytable '{"key": "foo", "data": "xyz"}' '{"key": "bar", "data": "xyz"}'
+    dynamoq scan mytable
 
-    echo '{"data": "update"}' | ddb update mytable mykey
-    ddb update mytable mykey field1=2 field2=[] --condition "field3 eq 456"
-    ddb update mytable mykey field1=2 field2=[] --condition "field4 between 7,8"
+    echo '{"data": "update"}' | dynamoq update mytable mykey
+    dynamoq update mytable mykey field1=2 field2=[] --condition "field3 eq 456"
+    dynamoq update mytable mykey field1=2 field2=[] --condition "field4 between 7,8"
 
 See `DynamoDB Conditions
 <http://boto3.readthedocs.io/en/latest/reference/customizations/dynamodb.html#ref-dynamodb-conditions>`_ for more.
