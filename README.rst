@@ -26,23 +26,23 @@ Authors
 
 Links
 -----
-* `Project home page (GitHub) <https://github.com/XML-Security/ddbcli>`_
+* `Project home page (GitHub) <https://github.com/kislyuk/ddbcli>`_
 * `Documentation (Read the Docs) <https://ddbcli.readthedocs.io/en/latest/>`_
 * `Package distribution (PyPI) <https://pypi.python.org/pypi/ddbcli>`_
-* `Change log <https://github.com/XML-Security/ddbcli/blob/master/Changes.rst>`_
+* `Change log <https://github.com/kislyuk/ddbcli/blob/master/Changes.rst>`_
 
 Bugs
 ~~~~
-Please report bugs, issues, feature requests, etc. on `GitHub <https://github.com/XML-Security/ddbcli/issues>`_.
+Please report bugs, issues, feature requests, etc. on `GitHub <https://github.com/kislyuk/ddbcli/issues>`_.
 
 License
 -------
 Licensed under the terms of the `Apache License, Version 2.0 <http://www.apache.org/licenses/LICENSE-2.0>`_.
 
-.. image:: https://img.shields.io/travis/XML-Security/ddbcli.svg
-        :target: https://travis-ci.org/XML-Security/ddbcli
-.. image:: https://codecov.io/github/XML-Security/ddbcli/coverage.svg?branch=master
-        :target: https://codecov.io/github/XML-Security/ddbcli?branch=master
+.. image:: https://img.shields.io/travis/kislyuk/ddbcli.svg
+        :target: https://travis-ci.org/kislyuk/ddbcli
+.. image:: https://codecov.io/github/kislyuk/ddbcli/coverage.svg?branch=master
+        :target: https://codecov.io/github/kislyuk/ddbcli?branch=master
 .. image:: https://img.shields.io/pypi/v/ddbcli.svg
         :target: https://pypi.python.org/pypi/ddbcli
 .. image:: https://img.shields.io/pypi/l/ddbcli.svg
