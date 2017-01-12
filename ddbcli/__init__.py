@@ -57,7 +57,6 @@ def main(args=None):
     elif result is not None:
         if isinstance(result, dict) and "ResponseMetadata" in result:
             del result["ResponseMetadata"]
-        print("wat")
         print(json.dumps(result, indent=2, default=lambda x: str(x)))
 
 def get_key_schema(table):
@@ -76,6 +75,8 @@ parser_get = register_parser(get)
 parser_get.add_argument("key", nargs="*")
 
 def put(args):
+    if not args.items:
+        args.items = json.load(sys.stdin)
     table = boto3.resource("dynamodb").Table(args.table)
     with table.batch_writer() as batch:
         for item in args.items:
@@ -84,11 +85,24 @@ def put(args):
 parser_put = register_parser(put)
 parser_put.add_argument("items", nargs="*", type=json.loads)
 
-def paginate(boto3_paginator, *args, **kwargs):
-    for page in boto3_paginator.paginate(*args, **kwargs):
-        for result_key in boto3_paginator.result_keys:
-            for value in page.get(result_key.parsed.get("value"), []):
-                yield value
+def update(args):
+    if not args.updates:
+        args.updates = [json.load(sys.stdin)]
+    table = boto3.resource("dynamodb").Table(args.table)
+    key_attr_name = get_key_schema(table)[0]["AttributeName"]
+    updates = {k: v for update in args.updates for k, v in update.items()}
+    update_args = dict(Key={key_attr_name: args.key},
+                       AttributeUpdates={k: dict(Value=v, Action="PUT") for k, v in updates.items()})
+    if args.condition:
+        key, op, value = args.condition.split(" ", 2)
+        from boto3.dynamodb.conditions import Key
+        update_args["ConditionExpression"] = getattr(Key(key), op)(json.loads(value))
+    table.update_item(**update_args)
+
+parser_update = register_parser(update)
+parser_update.add_argument("key")
+parser_update.add_argument("updates", nargs="*", type=lambda x: {k: json.loads(v) for k, v in [x.split("=", 1)]})
+parser_update.add_argument("--condition")
 
 def scan(args):
     table = boto3.resource("dynamodb").Table(args.table)
