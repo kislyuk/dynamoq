@@ -18,6 +18,7 @@ setup(
         "awscli"
     ],
     packages=find_packages(exclude=["test"]),
+    scripts=glob.glob("scripts/*"),
     include_package_data=True,
     platforms=["MacOS X", "Posix"],
     test_suite="test",
