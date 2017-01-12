@@ -5,7 +5,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="dynamoq",
-    version="0.0.4",
+    version="0.0.5",
     url="https://github.com/kislyuk/dynamoq",
     license="Apache Software License",
     author="Andrey Kislyuk",
