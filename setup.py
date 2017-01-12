@@ -4,9 +4,9 @@ import os, glob
 from setuptools import setup, find_packages
 
 setup(
-    name="ddbcli",
+    name="dynamoq",
     version="0.0.4",
-    url="https://github.com/kislyuk/ddbcli",
+    url="https://github.com/kislyuk/dynamoq",
     license="Apache Software License",
     author="Andrey Kislyuk",
     author_email="kislyuk@gmail.com",

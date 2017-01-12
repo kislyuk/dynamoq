@@ -1,5 +1,5 @@
 """
-ddbcli: DynamoDB Command Line Interface
+dynamoq: DynamoDB Command Line Interface
 """
 
 from __future__ import absolute_import, division, print_function, unicode_literals
@@ -10,7 +10,7 @@ from botocore.exceptions import NoRegionError
 from tweak import Config
 
 logger = logging.getLogger(__name__)
-config = Config("ddbcli")
+config = Config("dynamoq")
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument("--log-level", type=logger.setLevel,
                     help=str([logging.getLevelName(i) for i in range(0, 60, 10)]),
