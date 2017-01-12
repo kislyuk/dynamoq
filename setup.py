@@ -5,7 +5,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="ddbcli",
-    version="0.0.3",
+    version="0.0.4",
     url="https://github.com/kislyuk/ddbcli",
     license="Apache Software License",
     author="Andrey Kislyuk",

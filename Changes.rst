@@ -1,3 +1,8 @@
+Changes for v0.0.4 (2017-01-12)
+===============================
+
+stdin slurp support; update support
+
 Changes for v0.0.3 (2017-01-12)
 ===============================
 
